@@ -30,7 +30,7 @@ convert: procedure
    /* Vérification des entrées */
   if nombre < 0 then do
     say "Erreur : Nombre invalide. Veuillez saisir un nombre positif ou nul."
-    return resultat_hexadecimal
+    return resultat_hexade
   end
   
   /* Calcul de convertion */
