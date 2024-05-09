@@ -12,12 +12,12 @@
 
 /* Main program */
 do while nombre \= ''
-  say "Entrez un nombre :"
+  say "Entrez un nombre décimal :"
   pull nombre .
   say "Entrez une base :"
   pull base .
 
-  say "Votre nombre en decimal : "
+  say "Votre nombre en base : "base
   say convert(nombre base)
 end
 exit
@@ -25,12 +25,12 @@ exit
 /* Routine pour convertir */
 convert: procedure
   parse arg nombre base
-  resultat_hexadecimal = ''
+  resultat = ''
 
    /* Vérification des entrées */
   if nombre < 0 then do
     say "Erreur : Nombre invalide. Veuillez saisir un nombre positif ou nul."
-    return resultat_hexadecimal
+    return resultat
   end
   
   /* Calcul de convertion */
@@ -39,9 +39,9 @@ convert: procedure
     nombre = nombre % base
     
     if reste < 10 then
-      resultat_hexadecimal = translate(d2c(reste + 48)) || resultat_hexadecimal
+      resultat = translate(d2c(reste + 48)) || resultat
     else
-      resultat_hexadecimal = translate(d2c(reste + 55)) || resultat_hexadecimal
+      resultat = translate(d2c(reste + 55)) || resultat
   end
   
-  return resultat_hexadecimal
+  return resultat
