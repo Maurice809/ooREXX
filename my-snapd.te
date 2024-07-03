@@ -1,0 +1,11 @@
+
+module my-snapd 1.0;
+
+require {
+	type cgroup_t;
+	type snappy_t;
+	class dir watch;
+}
+
+#============= snappy_t ==============
+allow snappy_t cgroup_t:dir watch;
